@@ -138,11 +138,11 @@ A template layout cell is created by `-dequeueReusableCellWithIdentifier:` metho
 
 ## Installation
 
-Latest version: **1.1**
+Latest version: **1.1.1**
 
 ```
 pod search DGTemplateLayoutCell 
-pod 'DGTemplateLayoutCell', '~> 1.1'
+pod 'DGTemplateLayoutCell', '~> 1.1.1'
 ```
 If you cannot search out the latest version, try:  
 
