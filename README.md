@@ -6,7 +6,7 @@ Template auto layout cell for automatically UITableViewCell height calculating.(
 ## Overview
 Template auto layout cell for **automatically** UITableViewCell height calculating.
 
-![Demo Overview](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell/blob/master/Sceenshots/ZHAODG_480.gif)
+![Demo Overview](https://github.com/zhaodg/DGTemplateLayoutCell/blob/master/Sceenshots/ZHAODG_480.gif)
 
 ## Basic usage
 
