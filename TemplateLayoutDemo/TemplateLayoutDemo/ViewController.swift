@@ -150,7 +150,7 @@ extension ViewController {
                 cell.loadData(self.feedList[indexPath.section][indexPath.row])
             })
         case 2:
-            return tableView.dg_heightForCellWithIdentifier("DGFeedCell", key: .self.feedList[indexPath.section][indexPath.row].identifier,  configuration: { (cell) -> Void in
+            return tableView.dg_heightForCellWithIdentifier("DGFeedCell", key: self.feedList[indexPath.section][indexPath.row].identifier,  configuration: { (cell) -> Void in
                 let cell = cell as! DGFeedCell
                 cell.loadData(self.feedList[indexPath.section][indexPath.row])
             })

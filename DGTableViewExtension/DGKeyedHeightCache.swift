@@ -30,15 +30,15 @@ class DGHeightsDictionary {
         }
     }
 
-    func invalidateHeightForKey(key: String) -> CGFloat? {
+    internal func invalidateHeightForKey(key: String) -> CGFloat? {
         return self.heights.removeValueForKey(key)
     }
 
-    func invalidateAllHeightCache() {
+    internal func invalidateAllHeightCache() {
         return self.heights.removeAll()
     }
 
-    func existsKey(key: String) -> Bool {
+    internal func existsKey(key: String) -> Bool {
         return self[key] != nil
     }
 
@@ -55,7 +55,8 @@ extension UITableView {
         static var DGkeyedHeightCache = "DGkeyedHeightCache"
     }
 
-    var dg_keyedHeightCache: DGHeightsDictionary {
+    /// Height cache by key. Generally, you don't need to use it directly.
+    internal var dg_keyedHeightCache: DGHeightsDictionary {
         if let value: DGHeightsDictionary = objc_getAssociatedObject(self, &AssociatedKey.DGkeyedHeightCache) as? DGHeightsDictionary {
             return value
         } else {

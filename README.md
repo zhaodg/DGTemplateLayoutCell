@@ -136,6 +136,7 @@ Latest version: **1.0**
 
 ```
 pod search DGTemplateLayoutCell 
+pod 'DGTemplateLayoutCell', '~> 1.0'
 ```
 If you cannot search out the latest version, try:  
 
@@ -150,6 +151,9 @@ We recommend to use the latest release in cocoapods.
 - 1.0 
 > 1. Modify [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 
 > 2. Writes in Swift 2.0
+
+- 1.1
+> 1. Fix some bugs.
 
 ## License
 MIT

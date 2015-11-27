@@ -11,7 +11,7 @@ import UIKit
 extension UITableViewCell {
 
     // MARK: - public
-    var dg_isTemplateLayoutCell: Bool? {
+    public var dg_isTemplateLayoutCell: Bool? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.DGisTemplateLayoutCell) as? Bool
         }
@@ -20,7 +20,7 @@ extension UITableViewCell {
         }
     }
 
-    var dg_enforceFrameLayout: Bool? {
+    public var dg_enforceFrameLayout: Bool? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.DGenforceFrameLayout) as? Bool
         }

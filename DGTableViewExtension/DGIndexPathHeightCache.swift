@@ -12,8 +12,8 @@ class DGIndexPathHeightCache {
 
     private var heights: [[CGFloat]] = []
 
-    // Default is true
-    var automaticallyInvalidateEnabled: Bool = true
+    // Enable automatically if you're using index path driven height cache. Default is true
+    internal var automaticallyInvalidateEnabled: Bool = true
 
     init() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
@@ -37,53 +37,53 @@ class DGIndexPathHeightCache {
         }
     }
 
-    func invalidateHeightAtIndexPath(indexPath: NSIndexPath) {
+    internal func invalidateHeightAtIndexPath(indexPath: NSIndexPath) {
         self[indexPath] = -1
     }
 
-    func invalidateAllHeightCache() {
+    internal func invalidateAllHeightCache() {
         self.heights.removeAll()
     }
 
-    func existsIndexPath(indexPath: NSIndexPath) -> Bool {
+    internal func existsIndexPath(indexPath: NSIndexPath) -> Bool {
         return self[indexPath] != nil && self[indexPath] > -0.0000000001
     }
 
-    func insertSections(sections: NSIndexSet) {
+    internal func insertSections(sections: NSIndexSet) {
         sections.enumerateIndexesUsingBlock({ (index, stop) -> Void in
             self.buildSectionsIfNeeded(index)
             self.heights.insert([], atIndex: index)
         })
     }
 
-    func deleteSections(sections: NSIndexSet) {
+    internal func deleteSections(sections: NSIndexSet) {
         sections.enumerateIndexesUsingBlock({ (index, stop) -> Void in
             self.buildSectionsIfNeeded(index)
             self.heights.removeAtIndex(index)
         })
     }
 
-    func reloadSections(sections: NSIndexSet) {
+    internal func reloadSections(sections: NSIndexSet) {
         sections.enumerateIndexesUsingBlock({ (index, stop) -> Void in
             self.buildSectionsIfNeeded(index)
             self.heights[index] = []
         })
     }
 
-    func moveSection(section: Int, toSection newSection: Int) {
+    internal func moveSection(section: Int, toSection newSection: Int) {
         self.buildSectionsIfNeeded(section)
         self.buildSectionsIfNeeded(newSection)
         swap(&self.heights[section], &self.heights[newSection])
     }
 
-    func insertRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
+    internal func insertRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
         for indexPath in indexPaths {
             self.buildIndexPathIfNeeded(indexPath)
             self.heights[indexPath.section].insert(-1, atIndex: indexPath.row)
         }
     }
 
-    func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
+    internal func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
         let indexPathSorted = indexPaths.sort { $0.section > $1.section || $0.row > $1.row }
         for indexPath in indexPathSorted {
             self.buildIndexPathIfNeeded(indexPath)
@@ -91,14 +91,14 @@ class DGIndexPathHeightCache {
         }
     }
 
-    func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
+    internal func reloadRowsAtIndexPaths(indexPaths: [NSIndexPath]) {
         for indexPath in indexPaths {
             self.buildIndexPathIfNeeded(indexPath)
             self.invalidateHeightAtIndexPath(indexPath)
         }
     }
 
-    func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
+    internal func moveRowAtIndexPath(indexPath: NSIndexPath, toIndexPath newIndexPath: NSIndexPath) {
         self.buildIndexPathIfNeeded(indexPath)
         self.buildIndexPathIfNeeded(newIndexPath)
         swap(&self.heights[indexPath.section][indexPath.row], &self.heights[indexPath.section][indexPath.row])
@@ -138,7 +138,8 @@ extension UITableView {
         static var DGIndexPathHeightCache = "DGIndexPathHeightCache"
     }
 
-    var dg_indexPathHeightCache: DGIndexPathHeightCache {
+    /// Height cache by index path. Generally, you don't need to use it directly.
+    internal var dg_indexPathHeightCache: DGIndexPathHeightCache {
         if let value: DGIndexPathHeightCache = objc_getAssociatedObject(self, &AssociatedKey.DGIndexPathHeightCache) as? DGIndexPathHeightCache {
             return value
         } else {

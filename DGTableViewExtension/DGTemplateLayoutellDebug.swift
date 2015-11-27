@@ -10,7 +10,12 @@ import UIKit
 // MARK: - UITableView Extension
 extension UITableView {
 
-    var dg_debugLogEnabled: Bool? {
+    /// Helps to debug or inspect what is this "DGTemplateLayoutCell" extention doing,
+    /// turning on to print logs when "creating", "calculating", "precaching" or "hitting cache".
+    ///
+    /// Default to false, log by print.
+    ///
+    public var dg_debugLogEnabled: Bool? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.DGdebugLogEnabled) as? Bool
         }
@@ -20,6 +25,8 @@ extension UITableView {
     }
 
     // MARK: - public method
+
+    /// Debug log controlled by "dg_debugLogEnabled".
     public func dg_debugLog(message: String) {
         if self.dg_debugLogEnabled == true {
             print(message)

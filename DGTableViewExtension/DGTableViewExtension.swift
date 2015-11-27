@@ -11,6 +11,20 @@ import UIKit
 extension UITableView {
 
     // MARK: - public method
+    /// Returns height of cell of type specifed by a reuse identifier and configured
+    /// by the configuration block.
+    ///
+    /// The cell would be layed out on a fixed-width, vertically expanding basis with
+    /// respect to its dynamic content, using auto layout. Thus, it is imperative that
+    /// the cell was set up to be self-satisfied, i.e. its content always determines
+    /// its height given the width is equal to the tableview's.
+    ///
+    /// @param identifier A string identifier for retrieving and maintaining template
+    ///        cells with system's "-dequeueReusableCellWithIdentifier:" call.
+    /// @param configuration An optional block for configuring and providing content
+    ///        to the template cell. The configuration should be minimal for scrolling
+    ///        performance yet sufficient for calculating cell's height.
+    ///
     public func dg_heightForCellWithIdentifier(identifier: String, configuration: ((cell: UITableViewCell) -> Void)?) -> CGFloat {
         if identifier.characters.count == 0 {
             return 0
@@ -98,6 +112,12 @@ extension UITableView {
         return fittingSize.height
     }
 
+    /// This method caches height by your model entity's identifier.
+    /// If your model's changed, call "invalidateHeightForKey(key: String)" to
+    /// invalidate cache and re-calculate, it's much cheaper and effective than "cacheByIndexPath".
+    ///
+    /// @param key model entity's identifier whose data configures a cell.
+    ///
     public func dg_heightForCellWithIdentifier(identifier: String, key: String, configuration: ((cell: UITableViewCell) -> Void)?) -> CGFloat {
         if identifier.characters.count == 0 || key.characters.count == 0 {
             return 0
@@ -117,6 +137,16 @@ extension UITableView {
         return height
     }
 
+    /// This method does what "-dg_heightForCellWithIdentifier:configuration" does, and
+    /// calculated height will be cached by its index path, returns a cached height
+    /// when needed. Therefore lots of extra height calculations could be saved.
+    ///
+    /// No need to worry about invalidating cached heights when data source changes, it
+    /// will be done automatically when you call "-reloadData" or any method that triggers
+    /// UITableView's reloading.
+    ///
+    /// @param indexPath where this cell's height cache belongs.
+    ///
     public func dg_heightForCellWithIdentifier(identifier: String, indexPath: NSIndexPath, configuration: ((cell: UITableViewCell) -> Void)?) -> CGFloat {
         if identifier.characters.count == 0 {
             return 0
@@ -203,6 +233,9 @@ extension UITableView {
     }
 
     // MARK: - Method Swizzling
+    /// Call this method when you want to reload data but don't want to invalidate
+    /// all height cache by index path, for example, load more data at the bottom of
+    /// table view.
     public func dg_reloadDataWithoutInvalidateIndexPathHeightCache() {
         self.dg_reloadData()
     }
