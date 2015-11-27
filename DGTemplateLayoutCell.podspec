@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.platform = :ios, "8.0"
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source = { :git => "https://github.com/zhaodg/DGTemplateLayoutCell.git", :tag => "v1.0" }
+  s.source = { :git => "https://github.com/zhaodg/DGTemplateLayoutCell.git", :tag => "v1.1" }
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.source_files  = "DGTableViewExtension/*.{swift}"
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
