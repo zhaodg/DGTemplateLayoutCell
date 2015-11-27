@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DGTemplateLayoutCell"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "[Swift 2.0] Template auto layout cell for automatically UITableViewCell height calculate, cache and precache"
   s.description  = "[Swift 2.0] Template auto layout cell for automatically UITableViewCell height calculate, cache and precache. Requires a `self-satisfied` UITableViewCell, using system's `- systemLayoutSizeFittingSize:`, provides heights caching."
   s.homepage     = "https://github.com/zhaodg/DGTemplateLayoutCell"
