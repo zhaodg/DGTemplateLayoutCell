@@ -11,6 +11,11 @@ import UIKit
 extension UITableViewCell {
 
     // MARK: - public
+    /// Enable to enforce this template layout cell to use "frame layout" rather than "auto layout",
+    /// and will ask cell's height by calling "-sizeThatFits:", so you must override this method.
+    /// Use this property only when you want to manually control this template layout cell's height
+    /// calculation mode, default to false.
+    ///
     public var dg_isTemplateLayoutCell: Bool? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.DGisTemplateLayoutCell) as? Bool
@@ -20,6 +25,16 @@ extension UITableViewCell {
         }
     }
 
+    /// Indicate this is a template layout cell for calculation only.
+    /// You may need this when there are non-UI side effects when configure a cell.
+    /// Like:
+    ///   func configureCell(cell: DGFeedCell, atIndexPath indexPath: NSIndexPath) {
+    ///       cell.loadData(item...)
+    ///       if cell.fd_isTemplateLayoutCell == false {
+    ///           self.notifySomething() // non-UI side effects
+    ///       }
+    ///   }
+    ///
     public var dg_enforceFrameLayout: Bool? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKey.DGenforceFrameLayout) as? Bool
