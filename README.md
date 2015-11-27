@@ -13,6 +13,8 @@ Template auto layout cell for **automatically** UITableViewCell height calculati
 If you have a **self-satisfied** cell, then all you have to do is: 
 
 ``` 
+import DGTemplateLayoutCell
+
 override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return tableView.dg_heightForCellWithIdentifier("DGFeedCell", configuration: { (cell) -> Void in
     // Configure this cell with data, same as what you've done in "-tableView:cellForRowAtIndexPath:"
@@ -28,6 +30,8 @@ override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPat
 Since iOS8, `-tableView:heightForRowAtIndexPath:` will be called more times than we expect, we can feel these extra calculations when scrolling. So we provide another API with cache by index path:   
 
 ``` 
+import DGTemplateLayoutCell
+
 override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return tableView.dg_heightForCellWithIdentifier("DGFeedCell", indexPath: indexPath, configuration: { (cell) -> Void in
     // Configure this cell with data, same as what you've done in "-tableView:cellForRowAtIndexPath:"
@@ -41,6 +45,8 @@ override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPat
 Or, if your entity has an unique identifier, use cache by key API:
 
 ``` 
+import DGTemplateLayoutCell
+
 override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return tableView.dg_heightForCellWithIdentifier("DGFeedCell", key: uuid, configuration: { (cell) -> Void in
     // Configure this cell with data, same as what you've done in "-tableView:cellForRowAtIndexPath:"
@@ -132,11 +138,11 @@ A template layout cell is created by `-dequeueReusableCellWithIdentifier:` metho
 
 ## Installation
 
-Latest version: **1.0**
+Latest version: **1.1**
 
 ```
 pod search DGTemplateLayoutCell 
-pod 'DGTemplateLayoutCell', '~> 1.0'
+pod 'DGTemplateLayoutCell', '~> 1.1'
 ```
 If you cannot search out the latest version, try:  
 
