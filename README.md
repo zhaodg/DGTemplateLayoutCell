@@ -1,13 +1,12 @@
 # DGTemplateLayoutCell (Swift 2.0)
 Template auto layout cell for automatically UITableViewCell height calculating.(**Swift 2.0**)
+> DGTemplateLayoutCell copy and modify forkingdog's [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell), and it is implemented in Swift 2.0.
 
-# Requirements
+## Requirements
 - Xcode 7 or higher
 - iOS 8.0 or higher (may work on previous versions, just did not test it)
 - ARC
 - Swift 2.0
-
-> DGTemplateLayoutCell copy and modify forkingdog's [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell), and it is implemented in Swift 2.0.
 
 ## Overview
 Template auto layout cell for **automatically** UITableViewCell height calculating.
