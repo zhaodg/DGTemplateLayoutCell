@@ -20,7 +20,8 @@ struct DGFeedItem {
     let imageName: String
 
     init(dict: NSDictionary) {
-        identifier = "unique_id_\(countDGFeedItemIdentifier++)"
+        countDGFeedItemIdentifier += 1
+        identifier = "unique_id_\(countDGFeedItemIdentifier)"
 //            dict["identifier"] as! String
         title = dict["title"] as! String
         content = dict["content"] as! String
