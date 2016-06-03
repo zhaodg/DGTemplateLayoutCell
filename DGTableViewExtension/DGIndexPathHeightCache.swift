@@ -16,7 +16,7 @@ class DGIndexPathHeightCache {
     internal var automaticallyInvalidateEnabled: Bool = true
 
     init() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DGIndexPathHeightCache.deviceOrientationDidChange), name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
 
     deinit {

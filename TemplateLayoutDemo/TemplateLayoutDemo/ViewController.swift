@@ -81,7 +81,8 @@ class ViewController: UITableViewController {
     func randomItem() -> DGFeedItem {
         let randomNumber: Int = Int(arc4random_uniform(UInt32(self.jsonData.count)))
         var item: DGFeedItem = self.jsonData[randomNumber]
-        item.identifier = "unique-id-\(countDGFeedItemIdentifier++)"
+        countDGFeedItemIdentifier += 1
+        item.identifier = "unique-id-\(countDGFeedItemIdentifier)"
         return item
     }
 

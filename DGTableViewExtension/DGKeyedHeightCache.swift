@@ -13,7 +13,7 @@ class DGHeightsDictionary {
     private var heights: [String: CGFloat] = [:]
 
     init() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DGHeightsDictionary.deviceOrientationDidChange), name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
 
     deinit {
