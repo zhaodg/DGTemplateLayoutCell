@@ -169,5 +169,9 @@ We recommend to use the latest release in cocoapods.
 - 1.1.1
 > 1. Add Some Comment and modify podspec
 
+- 1.1.2
+> 1. Support Swift 3.0
+
+
 ## License
 MIT
