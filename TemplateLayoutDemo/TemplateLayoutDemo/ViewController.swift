@@ -66,7 +66,10 @@ class ViewController: UITableViewController {
             self.deleteSection()
         }
         let action4 = UIAlertAction(title: "Insert Rows At Index Paths", style: .Destructive) { action in
-            self.insertIndexPaths()
+            self.insertRowsAtIndexPaths()
+        }
+        let action5 = UIAlertAction(title: "Delete Rows At Index Paths", style: .Destructive) { action in
+            self.deleteRowsAtIndexPaths()
         }
 
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { action in
@@ -78,6 +81,7 @@ class ViewController: UITableViewController {
         alert.addAction(action2)
         alert.addAction(action3)
         alert.addAction(action4)
+        alert.addAction(action5)
 
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -112,8 +116,12 @@ class ViewController: UITableViewController {
         }
     }
 
-    func insertIndexPaths() {
+    func insertRowsAtIndexPaths() {
+        // demo 以section 0 为例子
         let section = 0
+        if self.feedList.count == 0 {
+            self.feedList.append([])
+        }
         let lastIndex = self.feedList[section].count
         let insertItems = [self.randomItem(), self.randomItem(), self.randomItem(), self.randomItem(), self.randomItem()]
         for item in insertItems {
@@ -124,7 +132,35 @@ class ViewController: UITableViewController {
         for index in 0..<insertItems.count {
             indexPaths.append(NSIndexPath(forRow: lastIndex + index, inSection: section))
         }
-        self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+
+        self.tableView.beginUpdates()
+        if self.tableView.numberOfSections < section + 1 {
+            self.tableView.insertSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+        } else {
+            self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        }
+        self.tableView.endUpdates()
+    }
+
+    func deleteRowsAtIndexPaths() {
+        // demo 以section 0 为例子
+        let section = 0
+        guard self.feedList.count > section + 1 && self.feedList[section].count > 0 else { return }
+
+        let row = self.feedList[section].count - 1
+        let indexPath = NSIndexPath(forRow: row, inSection: section)
+        self.feedList[section].removeLast()
+
+        guard self.tableView.numberOfSections > section + 1 else { return }
+
+        self.tableView.beginUpdates()
+        if self.tableView.numberOfRowsInSection(section) > 1 {
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        } else {
+            self.feedList.removeAtIndex(section)
+            self.tableView.deleteSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+        }
+        self.tableView.endUpdates()
     }
 }
 

@@ -13,15 +13,15 @@
 		C200F90D1C07078900481943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C200F90C1C07078900481943 /* Assets.xcassets */; };
 		C200F91B1C07078900481943 /* TemplateLayoutDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F91A1C07078900481943 /* TemplateLayoutDemoTests.swift */; };
 		C200F9261C07078900481943 /* TemplateLayoutDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9251C07078900481943 /* TemplateLayoutDemoUITests.swift */; };
-		C200F9391C0707A500481943 /* DGIndexPathHeightCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9341C0707A500481943 /* DGIndexPathHeightCache.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F93A1C0707A500481943 /* DGTemplateLayoutellDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9351C0707A500481943 /* DGTemplateLayoutellDebug.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F93B1C0707A500481943 /* DGTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9361C0707A500481943 /* DGTableViewExtension.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F93C1C0707A500481943 /* DGTemplateLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9371C0707A500481943 /* DGTemplateLayoutCell.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F93D1C0707A500481943 /* DGKeyedHeightCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9381C0707A500481943 /* DGKeyedHeightCache.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F93F1C0709A300481943 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = C200F93E1C0709A300481943 /* Data.json */; settings = {ASSET_TAGS = (); }; };
-		C200F9411C0709E700481943 /* DGFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9401C0709E700481943 /* DGFeedItem.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F9431C0709F300481943 /* DGFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9421C0709F300481943 /* DGFeedCell.swift */; settings = {ASSET_TAGS = (); }; };
-		C200F9451C07399A00481943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200F9441C07399A00481943 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		C200F9391C0707A500481943 /* DGIndexPathHeightCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9341C0707A500481943 /* DGIndexPathHeightCache.swift */; };
+		C200F93A1C0707A500481943 /* DGTemplateLayoutellDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9351C0707A500481943 /* DGTemplateLayoutellDebug.swift */; };
+		C200F93B1C0707A500481943 /* DGTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9361C0707A500481943 /* DGTableViewExtension.swift */; };
+		C200F93C1C0707A500481943 /* DGTemplateLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9371C0707A500481943 /* DGTemplateLayoutCell.swift */; };
+		C200F93D1C0707A500481943 /* DGKeyedHeightCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9381C0707A500481943 /* DGKeyedHeightCache.swift */; };
+		C200F93F1C0709A300481943 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = C200F93E1C0709A300481943 /* Data.json */; };
+		C200F9411C0709E700481943 /* DGFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9401C0709E700481943 /* DGFeedItem.swift */; };
+		C200F9431C0709F300481943 /* DGFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200F9421C0709F300481943 /* DGFeedCell.swift */; };
+		C200F9451C07399A00481943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200F9441C07399A00481943 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +224,7 @@
 				TargetAttributes = {
 					C200F9011C07078900481943 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 4JDGGKN384;
 					};
 					C200F9151C07078900481943 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -430,11 +431,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TemplateLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhaodg.TemplateLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -442,11 +446,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TemplateLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhaodg.TemplateLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -517,6 +524,7 @@
 				C200F92C1C07078900481943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C200F92D1C07078900481943 /* Build configuration list for PBXNativeTarget "TemplateLayoutDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +533,7 @@
 				C200F92F1C07078900481943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C200F9301C07078900481943 /* Build configuration list for PBXNativeTarget "TemplateLayoutDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +542,7 @@
 				C200F9321C07078900481943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
