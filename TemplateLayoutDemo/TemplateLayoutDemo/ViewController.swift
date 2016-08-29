@@ -65,6 +65,9 @@ class ViewController: UITableViewController {
         let action3 = UIAlertAction(title: "Delete a section", style: .Destructive) { action in
             self.deleteSection()
         }
+        let action4 = UIAlertAction(title: "Insert Rows At Index Paths", style: .Destructive) { action in
+            self.insertIndexPaths()
+        }
 
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { action in
 
@@ -74,7 +77,8 @@ class ViewController: UITableViewController {
         alert.addAction(action1)
         alert.addAction(action2)
         alert.addAction(action3)
-    
+        alert.addAction(action4)
+
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
@@ -106,6 +110,21 @@ class ViewController: UITableViewController {
             self.feedList.removeAtIndex(0)
             self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+
+    func insertIndexPaths() {
+        let section = 0
+        let lastIndex = self.feedList[section].count
+        let insertItems = [self.randomItem(), self.randomItem(), self.randomItem(), self.randomItem(), self.randomItem()]
+        for item in insertItems {
+            self.feedList[section].append(item)
+        }
+
+        var indexPaths: [NSIndexPath] = []
+        for index in 0..<insertItems.count {
+            indexPaths.append(NSIndexPath(forRow: lastIndex + index, inSection: section))
+        }
+        self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
 }
 
